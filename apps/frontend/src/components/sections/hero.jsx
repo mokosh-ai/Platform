@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 const fallbackHeroData = {
   aboveTheFoldHeadline: "Websites that listen",
-  aboveTheFoldAccent: "Through Conversation", 
   aboveTheFoldDescription: "Update your website content instantly by chatting with AI. No technical skills, no complex interfaces.",
   primaryButtonText: "Start Free Trial",
   secondaryButtonText: "Watch Demo"
@@ -72,7 +71,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-        {/* Headline with 45-degree Gradient */}
+        {/* Single Headline with Gradient */}
         <div className={`transition-all duration-1000 ${isVisible ? 'scale-105 opacity-100' : 'scale-100 opacity-0'}`}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
             <span 
@@ -83,7 +82,6 @@ export default function Hero() {
             >
               {heroData.aboveTheFoldHeadline}
             </span>
-            <span className="block text-gray-900 mt-4 text-4xl md:text-5xl lg:text-6xl">{heroData.aboveTheFoldAccent}</span>
           </h1>
         </div>
         

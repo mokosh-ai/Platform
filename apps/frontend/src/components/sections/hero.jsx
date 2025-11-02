@@ -83,7 +83,7 @@ export default function Hero() {
             >
               {heroData.aboveTheFoldHeadline}
             </span>
-            <span className="block text-blue-600 mt-4 text-4xl md:text-5xl lg:text-6xl">{heroData.aboveTheFoldAccent}</span>
+            <span className="block text-gray-900 mt-4 text-4xl md:text-5xl lg:text-6xl">{heroData.aboveTheFoldAccent}</span>
           </h1>
         </div>
         

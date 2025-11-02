@@ -35,26 +35,25 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20">
-      {/* Webflow-style Animated Background */}
+      {/* Animated Pillars Background */}
       <div className="absolute inset-0 z-0">
-        {/* Animated Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-indigo-50/30 animate-gradient-x"></div>
+        {/* Base white background */}
+        <div className="absolute inset-0 bg-white"></div>
         
-        {/* Animated Vertical Lines */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute left-1/4 top-0 w-32 h-full bg-gradient-to-b from-blue-200 to-purple-200 transform -skew-x-12 animate-move-slow"></div>
-          <div className="absolute left-2/4 top-0 w-32 h-full bg-gradient-to-b from-purple-200 to-indigo-200 transform -skew-x-12 animate-move-slow" style={{animationDelay: '1s'}}></div>
-          <div className="absolute left-3/4 top-0 w-32 h-full bg-gradient-to-b from-indigo-200 to-blue-200 transform -skew-x-12 animate-move-slow" style={{animationDelay: '2s'}}></div>
+        {/* Animated Pillars */}
+        <div className="absolute inset-0">
+          <div className="absolute left-1/4 top-0 w-32 h-full bg-gradient-to-b from-blue-100 to-purple-100 transform -skew-x-12 animate-pillar-shift"></div>
+          <div className="absolute left-2/4 top-0 w-32 h-full bg-gradient-to-b from-purple-100 to-indigo-100 transform -skew-x-12 animate-pillar-shift" style={{animationDelay: '2s'}}></div>
+          <div className="absolute left-3/4 top-0 w-32 h-full bg-gradient-to-b from-indigo-100 to-blue-100 transform -skew-x-12 animate-pillar-shift" style={{animationDelay: '4s'}}></div>
         </div>
         
-        {/* Moving Blobs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
-        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{animationDelay: '3s'}}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{animationDelay: '6s'}}></div>
+        {/* Subtle floating elements for depth */}
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
+        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '3s'}}></div>
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-        {/* Headline - Only animates on load, no hover */}
+        {/* Headline - Only animates on load */}
         <div className={`transition-all duration-1000 ${isVisible ? 'scale-105 opacity-100' : 'scale-100 opacity-0'}`}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
             {heroData.aboveTheFoldHeadline}
@@ -92,28 +91,38 @@ export default function Hero() {
       </div>
 
       <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
+        @keyframes pillar-shift {
+          0% {
+            opacity: 0.3;
+            background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
+          }
+          25% {
+            opacity: 0.5;
+            background: linear-gradient(to bottom, #bfdbfe, #ddd6fe);
+          }
+          50% {
+            opacity: 0.7;
+            background: linear-gradient(to bottom, #93c5fd, #c4b5fd);
+          }
+          75% {
+            opacity: 0.5;
+            background: linear-gradient(to bottom, #bfdbfe, #ddd6fe);
+          }
+          100% {
+            opacity: 0.3;
+            background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
+          }
         }
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
           33% { transform: translateY(-20px) translateX(10px) rotate(1deg); }
           66% { transform: translateY(10px) translateX(-10px) rotate(-1deg); }
         }
-        @keyframes move-slow {
-          0%, 100% { transform: translateY(0px) skewX(-12deg); }
-          50% { transform: translateY(-10px) skewX(-12deg); }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 15s ease infinite;
+        .animate-pillar-shift {
+          animation: pillar-shift 8s ease-in-out infinite;
         }
         .animate-float {
           animation: float 20s ease-in-out infinite;
-        }
-        .animate-move-slow {
-          animation: move-slow 8s ease-in-out infinite;
         }
       `}</style>
     </section>

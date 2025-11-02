@@ -31,10 +31,22 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+        {/* Section Header with Partial Gradient */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            How MokoshAI Works
+            <span className="relative inline-block">
+              {/* Gradient Part - How Mokosh */}
+              <span 
+                className="bg-gradient-to-r from-blue-500 via-purple-500 to-black bg-clip-text text-transparent animate-partial-gradient"
+                style={{
+                  backgroundSize: '200% 100%'
+                }}
+              >
+                How Mokosh
+              </span>
+              {/* Static Black Part - AI Works */}
+              <span className="text-black">AI Works</span>
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Update your website in three simple steps—no technical skills required
@@ -105,6 +117,24 @@ export default function HowItWorks() {
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes partial-gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        
+        .animate-partial-gradient {
+          animation: partial-gradient 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }

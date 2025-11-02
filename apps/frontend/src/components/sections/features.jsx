@@ -1,73 +1,162 @@
+'use client';
+
 export default function Features() {
   const features = [
     {
-      title: "Service Pages",
-      description: "Update pricing, descriptions, and offerings instantly",
-      icon: "🛠️"
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+      ),
+      title: "Natural Language Updates",
+      description: "Update your website by simply chatting. No technical skills or complex interfaces required."
     },
     {
-      title: "Blog Content", 
-      description: "Create and optimize blog posts through conversation",
-      icon: "📝"
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
+      title: "Zero Technical Risk",
+      description: "AI maintains your website's design integrity and SEO while making content updates."
     },
     {
-      title: "Landing Pages",
-      description: "A/B test headlines and copy with AI suggestions",
-      icon: "🎯"
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "Instant Publishing",
+      description: "Changes go live immediately. No waiting for developers or deployment cycles."
     },
     {
-      title: "Product Listings",
-      description: "Update product details, prices, and features",
-      icon: "📦"
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      title: "Lightning Fast",
+      description: "Update multiple pages in seconds. What used to take hours now takes minutes."
     },
     {
-      title: "Team Pages",
-      description: "Keep team information current and engaging",
-      icon: "👥"
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      title: "Content Analytics",
+      description: "Track which updates perform best and optimize your content strategy."
     },
     {
-      title: "FAQ Sections",
-      description: "Expand and optimize frequently asked questions",
-      icon: "❓"
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      title: "Team Collaboration",
+      description: "Multiple team members can manage content with approval workflows."
     }
-  ]
+  ];
 
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="features" className="bg-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            What You Can Update
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <span 
+              className="bg-gradient-to-br from-blue-500 via-purple-500 to-black bg-clip-text text-transparent animate-gradient-move"
+              style={{
+                backgroundSize: '200% 200%'
+              }}
+            >
+              Everything Teams Love
+            </span>
+            <br />
+            <span className="text-gray-900">About MokoshAI</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Manage every part of your website through natural conversation
+            Powerful features that make website management effortless for everyone on your team
           </p>
         </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+            <div
+              key={index}
+              className="group p-8 rounded-2xl transition-all duration-500 hover:shadow-xl hover:scale-105 border border-gray-100"
+            >
+              {/* Icon Container */}
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-500">
+                <div className="text-blue-600 group-hover:text-blue-700 transition-colors duration-500">
+                  {feature.icon}
+                </div>
+              </div>
+
+              {/* Feature Content */}
+              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-500">
                 {feature.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 {feature.description}
               </p>
+
+              {/* Hover Indicator */}
+              <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="w-8 h-1 bg-blue-600 rounded-full"></div>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">Ready to transform your content management?</p>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-            Start Free Trial
-          </button>
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="bg-gray-50 rounded-2xl p-12 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              Ready to transform how your team manages content?
+            </h3>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join forward-thinking teams that save hours every week with AI-powered content management
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+              >
+                Start Free Trial
+              </button>
+              <button 
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-2 border-gray-900 hover:border-blue-600 text-gray-900 hover:text-blue-600 font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 group"
+              >
+                <span>See How It Works</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes gradient-move {
+          0% {
+            background-position: 0% 0%;
+          }
+          50% {
+            background-position: 100% 100%;
+          }
+          100% {
+            background-position: 0% 0%;
+          }
+        }
+        
+        .animate-gradient-move {
+          animation: gradient-move 6s ease infinite;
+        }
+      `}</style>
     </section>
-  )
+  );
 }

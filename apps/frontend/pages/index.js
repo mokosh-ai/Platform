@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from '../src/components/layout/header'
 import Hero from '../src/components/sections/hero'
 import HowItWorks from '../src/components/sections/how-it-works'
-import Features from '../src/components/sections/features'
+import Features from '../src/components/sections/features' // Make sure this is imported
 import Demo from '../src/components/sections/demo'
 import Pricing from '../src/components/sections/pricing'
 import Footer from '../src/components/layout/footer'
@@ -20,7 +20,7 @@ export default function Home() {
         <main>
           <Hero />
           <HowItWorks />
-          <Features />
+          <Features /> {/* Make sure this is here */}
           <Demo />
           <Pricing />
         </main>

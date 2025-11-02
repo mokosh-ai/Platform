@@ -72,10 +72,12 @@ export default function Hero() {
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-        {/* Headline - Only animates on load */}
+        {/* Headline with Webflow Gradient Effect */}
         <div className={`transition-all duration-1000 ${isVisible ? 'scale-105 opacity-100' : 'scale-100 opacity-0'}`}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
-            {heroData.aboveTheFoldHeadline}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
+            <span className="animate-gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {heroData.aboveTheFoldHeadline}
+            </span>
             <span className="block text-blue-600 mt-4">{heroData.aboveTheFoldAccent}</span>
           </h1>
         </div>
@@ -133,6 +135,18 @@ export default function Hero() {
             opacity: 1;
           }
         }
+
+        @keyframes gradient-shift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
         
         .animate-pillar-fade-in {
           animation: pillar-fade-in 8s ease-in-out infinite;
@@ -140,6 +154,11 @@ export default function Hero() {
         
         .animate-space-fade-out {
           animation: space-fade-out 8s ease-in-out infinite;
+        }
+
+        .animate-gradient-text {
+          background-size: 200% 200%;
+          animation: gradient-shift 3s ease infinite;
         }
       `}</style>
     </section>

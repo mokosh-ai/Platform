@@ -35,21 +35,17 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20">
-      {/* Animated Pillars Background */}
+      {/* Subtle Milky Background */}
       <div className="absolute inset-0 z-0">
         {/* Base white background */}
         <div className="absolute inset-0 bg-white"></div>
         
-        {/* Smooth Continuous Color Fade Pillars */}
+        {/* Smooth Milky Color Transitions */}
         <div className="absolute inset-0">
-          <div className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-smooth-fade"></div>
-          <div className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-smooth-fade"></div>
-          <div className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-smooth-fade"></div>
+          <div className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-milky-fade"></div>
+          <div className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-milky-fade"></div>
+          <div className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-milky-fade"></div>
         </div>
-        
-        {/* Subtle floating elements for depth */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float-slow"></div>
-        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float-slow" style={{animationDelay: '15s'}}></div>
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
@@ -91,39 +87,38 @@ export default function Hero() {
       </div>
 
       <style jsx>{`
-        @keyframes pillar-smooth-fade {
+        @keyframes pillar-milky-fade {
           0% {
-            background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
+            background: linear-gradient(to bottom, #f0f9ff, #faf5ff);
+            opacity: 0.2;
+          }
+          16% {
+            background: linear-gradient(to bottom, #e0f2fe, #f3e8ff);
+            opacity: 0.25;
+          }
+          32% {
+            background: linear-gradient(to bottom, #bae6fd, #e9d5ff);
             opacity: 0.3;
           }
-          25% {
-            background: linear-gradient(to bottom, #a5b4fc, #c4b5fd);
-            opacity: 0.6;
+          48% {
+            background: linear-gradient(to bottom, #7dd3fc, #d8b4fe);
+            opacity: 0.35;
           }
-          50% {
-            background: linear-gradient(to bottom, #818cf8, #a78bfa);
-            opacity: 0.8;
+          64% {
+            background: linear-gradient(to bottom, #bae6fd, #e9d5ff);
+            opacity: 0.3;
           }
-          75% {
-            background: linear-gradient(to bottom, #a5b4fc, #c4b5fd);
-            opacity: 0.6;
+          80% {
+            background: linear-gradient(to bottom, #e0f2fe, #f3e8ff);
+            opacity: 0.25;
           }
           100% {
-            background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
-            opacity: 0.3;
+            background: linear-gradient(to bottom, #f0f9ff, #faf5ff);
+            opacity: 0.2;
           }
         }
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.3; }
-          25% { transform: translateY(-15px) translateX(8px) rotate(0.5deg); opacity: 0.4; }
-          50% { transform: translateY(5px) translateX(-8px) rotate(-0.5deg); opacity: 0.3; }
-          75% { transform: translateY(-10px) translateX(5px) rotate(0.3deg); opacity: 0.35; }
-        }
-        .animate-pillar-smooth-fade {
-          animation: pillar-smooth-fade 25s ease-in-out infinite;
-        }
-        .animate-float-slow {
-          animation: float-slow 40s ease-in-out infinite;
+        .animate-pillar-milky-fade {
+          animation: pillar-milky-fade 30s ease-in-out infinite;
         }
       `}</style>
     </section>

@@ -31,21 +31,16 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header with Partial Gradient */}
+        {/* Section Header with Full Gradient */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            <span className="relative inline-block">
-              {/* Gradient Part - How Mok */}
-              <span 
-                className="bg-gradient-to-r from-blue-500 via-purple-500 to-black bg-clip-text text-transparent animate-partial-gradient"
-                style={{
-                  backgroundSize: '200% 100%'
-                }}
-              >
-                How Mok
-              </span>
-              {/* Static Black Part - oshAI Works */}
-              <span className="text-black">oshAI Works</span>
+            <span 
+              className="bg-gradient-to-r from-blue-500 via-purple-500 to-black via-black to-blue-500 bg-clip-text text-transparent animate-extended-black"
+              style={{
+                backgroundSize: '400% 100%'
+              }}
+            >
+              How MokoshAI Works
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -119,20 +114,24 @@ export default function HowItWorks() {
       </div>
 
       <style jsx>{`
-        @keyframes partial-gradient {
+        @keyframes extended-black {
           0% {
             background-position: 0% 50%;
           }
-          50% {
-            background-position: 100% 50%;
+          25% {
+            background-position: 50% 50%;
+          }
+          /* Black stays longer here */
+          75% {
+            background-position: 50% 50%;
           }
           100% {
-            background-position: 0% 50%;
+            background-position: 100% 50%;
           }
         }
         
-        .animate-partial-gradient {
-          animation: partial-gradient 8s ease-in-out infinite;
+        .animate-extended-black {
+          animation: extended-black 12s ease-in-out infinite;
         }
       `}</style>
     </section>

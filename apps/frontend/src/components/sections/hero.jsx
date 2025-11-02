@@ -72,26 +72,33 @@ export default function Hero() {
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-        {/* Headline with Exact Webflow Gradient Overlay Effect */}
+        {/* Headline with Webflow Gradient Overlay */}
         <div className={`transition-all duration-1000 ${isVisible ? 'scale-105 opacity-100' : 'scale-100 opacity-0'}`}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight tracking-tight relative">
+          <div className="relative inline-block">
             {/* Base black text */}
-            <span className="relative z-10">{heroData.aboveTheFoldHeadline}</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
+              {heroData.aboveTheFoldHeadline}
+            </h1>
             
-            {/* Gradient overlay that radiates from top-left */}
-            <span 
-              className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-pink-500/10 bg-clip-text text-transparent animate-webflow-gradient pointer-events-none"
-              style={{ 
+            {/* Gradient overlay - positioned absolutely over the text */}
+            <div 
+              className="absolute top-0 left-0 w-full h-full animate-webflow-gradient opacity-70 pointer-events-none"
+              style={{
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(139, 92, 246, 0.6) 30%, rgba(236, 72, 153, 0.4) 70%, transparent 100%)',
                 backgroundSize: '200% 200%',
-                maskImage: 'linear-gradient(135deg, black 0%, transparent 70%)',
-                WebkitMaskImage: 'linear-gradient(135deg, black 0%, transparent 70%)'
+                mixBlendMode: 'overlay',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent'
               }}
             >
-              {heroData.aboveTheFoldHeadline}
-            </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+                {heroData.aboveTheFoldHeadline}
+              </h1>
+            </div>
             
-            <span className="block text-blue-600 mt-4 relative z-10">{heroData.aboveTheFoldAccent}</span>
-          </h1>
+            <span className="block text-blue-600 mt-4">{heroData.aboveTheFoldAccent}</span>
+          </div>
         </div>
         
         {/* Subheadline - Only animates on load */}
@@ -169,7 +176,7 @@ export default function Hero() {
         }
 
         .animate-webflow-gradient {
-          animation: webflow-gradient 6s ease infinite;
+          animation: webflow-gradient 8s ease infinite;
         }
       `}</style>
     </section>

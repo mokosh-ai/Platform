@@ -35,16 +35,39 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20">
-      {/* Subtle Milky Background */}
+      {/* Inversion Animation Background */}
       <div className="absolute inset-0 z-0">
-        {/* Base white background */}
+        {/* Base layer - always visible white */}
         <div className="absolute inset-0 bg-white"></div>
         
-        {/* Smooth Milky Color Transitions */}
+        {/* Pillars that fade IN (0% → 100%) */}
         <div className="absolute inset-0">
-          <div className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-milky-fade"></div>
-          <div className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-milky-fade"></div>
-          <div className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-milky-fade"></div>
+          <div 
+            className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-fade-in"
+            style={{
+              background: 'linear-gradient(to bottom, #dbeafe, #e9d5ff)'
+            }}
+          ></div>
+          <div 
+            className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-fade-in"
+            style={{
+              background: 'linear-gradient(to bottom, #dbeafe, #e9d5ff)'
+            }}
+          ></div>
+          <div 
+            className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-fade-in"
+            style={{
+              background: 'linear-gradient(to bottom, #dbeafe, #e9d5ff)'
+            }}
+          ></div>
+        </div>
+
+        {/* White Spaces that fade OUT (100% → 0%) */}
+        <div className="absolute inset-0">
+          <div className="absolute left-0 top-0 w-1/4 h-full bg-white animate-space-fade-out"></div>
+          <div className="absolute left-1/3 top-0 w-1/4 h-full bg-white animate-space-fade-out" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute left-2/3 top-0 w-1/4 h-full bg-white animate-space-fade-out" style={{animationDelay: '1s'}}></div>
+          <div className="absolute left-3/4 top-0 w-1/4 h-full bg-white animate-space-fade-out" style={{animationDelay: '1.5s'}}></div>
         </div>
       </div>
 
@@ -87,38 +110,36 @@ export default function Hero() {
       </div>
 
       <style jsx>{`
-        @keyframes pillar-milky-fade {
+        @keyframes pillar-fade-in {
           0% {
-            background: linear-gradient(to bottom, #f0f9ff, #faf5ff);
-            opacity: 0.2;
+            opacity: 0;
           }
-          16% {
-            background: linear-gradient(to bottom, #e0f2fe, #f3e8ff);
-            opacity: 0.25;
-          }
-          32% {
-            background: linear-gradient(to bottom, #bae6fd, #e9d5ff);
-            opacity: 0.3;
-          }
-          48% {
-            background: linear-gradient(to bottom, #7dd3fc, #d8b4fe);
-            opacity: 0.35;
-          }
-          64% {
-            background: linear-gradient(to bottom, #bae6fd, #e9d5ff);
-            opacity: 0.3;
-          }
-          80% {
-            background: linear-gradient(to bottom, #e0f2fe, #f3e8ff);
-            opacity: 0.25;
+          50% {
+            opacity: 1;
           }
           100% {
-            background: linear-gradient(to bottom, #f0f9ff, #faf5ff);
-            opacity: 0.2;
+            opacity: 0;
           }
         }
-        .animate-pillar-milky-fade {
-          animation: pillar-milky-fade 30s ease-in-out infinite;
+        
+        @keyframes space-fade-out {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        
+        .animate-pillar-fade-in {
+          animation: pillar-fade-in 8s ease-in-out infinite;
+        }
+        
+        .animate-space-fade-out {
+          animation: space-fade-out 8s ease-in-out infinite;
         }
       `}</style>
     </section>

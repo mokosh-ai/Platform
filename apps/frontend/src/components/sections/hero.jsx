@@ -35,38 +35,41 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20">
-      {/* Webflow-style Vertical Gradient Lines Background */}
+      {/* Webflow-style Animated Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-indigo-50/30"></div>
-        {/* Vertical Lines */}
+        {/* Animated Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-indigo-50/30 animate-gradient-x"></div>
+        
+        {/* Animated Vertical Lines */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute left-1/4 top-0 w-32 h-full bg-gradient-to-b from-blue-200 to-purple-200 transform -skew-x-12"></div>
-          <div className="absolute left-2/4 top-0 w-32 h-full bg-gradient-to-b from-purple-200 to-indigo-200 transform -skew-x-12"></div>
-          <div className="absolute left-3/4 top-0 w-32 h-full bg-gradient-to-b from-indigo-200 to-blue-200 transform -skew-x-12"></div>
+          <div className="absolute left-1/4 top-0 w-32 h-full bg-gradient-to-b from-blue-200 to-purple-200 transform -skew-x-12 animate-move-slow"></div>
+          <div className="absolute left-2/4 top-0 w-32 h-full bg-gradient-to-b from-purple-200 to-indigo-200 transform -skew-x-12 animate-move-slow" style={{animationDelay: '1s'}}></div>
+          <div className="absolute left-3/4 top-0 w-32 h-full bg-gradient-to-b from-indigo-200 to-blue-200 transform -skew-x-12 animate-move-slow" style={{animationDelay: '2s'}}></div>
         </div>
-        {/* Animated Blobs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{animationDelay: '4s'}}></div>
+        
+        {/* Moving Blobs */}
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
+        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{animationDelay: '6s'}}></div>
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-        {/* Animated Headline */}
-        <div className={`transition-all duration-1000 ${isVisible ? 'scale-105' : 'scale-100'} hover:scale-100`}>
+        {/* Headline - Only animates on load, no hover */}
+        <div className={`transition-all duration-1000 ${isVisible ? 'scale-105 opacity-100' : 'scale-100 opacity-0'}`}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
             {heroData.aboveTheFoldHeadline}
             <span className="block text-blue-600 mt-4">{heroData.aboveTheFoldAccent}</span>
           </h1>
         </div>
         
-        {/* Animated Subheadline */}
+        {/* Subheadline - Only animates on load */}
         <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
             {heroData.aboveTheFoldDescription}
           </p>
         </div>
 
-        {/* Animated CTA Buttons */}
+        {/* CTA Buttons - Only animates on load */}
         <div className={`flex flex-col sm:flex-row gap-6 justify-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <button 
             onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
@@ -87,6 +90,32 @@ export default function Hero() {
           </button>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes gradient-x {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+          33% { transform: translateY(-20px) translateX(10px) rotate(1deg); }
+          66% { transform: translateY(10px) translateX(-10px) rotate(-1deg); }
+        }
+        @keyframes move-slow {
+          0%, 100% { transform: translateY(0px) skewX(-12deg); }
+          50% { transform: translateY(-10px) skewX(-12deg); }
+        }
+        .animate-gradient-x {
+          background-size: 200% 200%;
+          animation: gradient-x 15s ease infinite;
+        }
+        .animate-float {
+          animation: float 20s ease-in-out infinite;
+        }
+        .animate-move-slow {
+          animation: move-slow 8s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }

@@ -40,16 +40,16 @@ export default function Hero() {
         {/* Base white background */}
         <div className="absolute inset-0 bg-white"></div>
         
-        {/* Animated Pillars */}
+        {/* Simultaneously Animated Pillars */}
         <div className="absolute inset-0">
-          <div className="absolute left-1/4 top-0 w-32 h-full bg-gradient-to-b from-blue-100 to-purple-100 transform -skew-x-12 animate-pillar-shift"></div>
-          <div className="absolute left-2/4 top-0 w-32 h-full bg-gradient-to-b from-purple-100 to-indigo-100 transform -skew-x-12 animate-pillar-shift" style={{animationDelay: '2s'}}></div>
-          <div className="absolute left-3/4 top-0 w-32 h-full bg-gradient-to-b from-indigo-100 to-blue-100 transform -skew-x-12 animate-pillar-shift" style={{animationDelay: '4s'}}></div>
+          <div className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-color-shift"></div>
+          <div className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-color-shift"></div>
+          <div className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-color-shift"></div>
         </div>
         
         {/* Subtle floating elements for depth */}
         <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
-        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '10s'}}></div>
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
@@ -91,26 +91,34 @@ export default function Hero() {
       </div>
 
       <style jsx>{`
-        @keyframes pillar-shift {
+        @keyframes pillar-color-shift {
           0% {
-            opacity: 0.3;
             background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
+            opacity: 0.4;
           }
-          25% {
-            opacity: 0.5;
+          16.6% {
             background: linear-gradient(to bottom, #bfdbfe, #ddd6fe);
+            opacity: 0.5;
+          }
+          33.3% {
+            background: linear-gradient(to bottom, #93c5fd, #c4b5fd);
+            opacity: 0.6;
           }
           50% {
+            background: linear-gradient(to bottom, #60a5fa, #a78bfa);
             opacity: 0.7;
-            background: linear-gradient(to bottom, #93c5fd, #c4b5fd);
           }
-          75% {
-            opacity: 0.5;
+          66.6% {
+            background: linear-gradient(to bottom, #93c5fd, #c4b5fd);
+            opacity: 0.6;
+          }
+          83.3% {
             background: linear-gradient(to bottom, #bfdbfe, #ddd6fe);
+            opacity: 0.5;
           }
           100% {
-            opacity: 0.3;
             background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
+            opacity: 0.4;
           }
         }
         @keyframes float {
@@ -118,11 +126,11 @@ export default function Hero() {
           33% { transform: translateY(-20px) translateX(10px) rotate(1deg); }
           66% { transform: translateY(10px) translateX(-10px) rotate(-1deg); }
         }
-        .animate-pillar-shift {
-          animation: pillar-shift 8s ease-in-out infinite;
+        .animate-pillar-color-shift {
+          animation: pillar-color-shift 20s ease-in-out infinite;
         }
         .animate-float {
-          animation: float 20s ease-in-out infinite;
+          animation: float 30s ease-in-out infinite;
         }
       `}</style>
     </section>

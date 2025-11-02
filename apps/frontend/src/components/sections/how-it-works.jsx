@@ -6,25 +6,25 @@ export default function HowItWorks() {
 
   const steps = [
     {
-      number: "01",
+      number: "Step 1",
       title: "Chat with AI",
       description: "Simply describe what you want to change on your website. Our AI understands natural language and your website structure.",
       hoverDescription: "No technical jargon needed. Just talk to MokoshAI like you would to a colleague. 'Update our services page' or 'Add a winter promotion banner' - it just works.",
-      image: "/api/placeholder/400/300?text=Chat+Interface"
+      image: "/api/placeholder/600/400?text=Chat+Interface"
     },
     {
-      number: "02",
+      number: "Step 2",
       title: "Preview Changes",
       description: "Review the AI-generated updates in real-time before they go live.",
       hoverDescription: "See exactly how your changes will look on your actual website. Make adjustments or request revisions instantly through the chat.",
-      image: "/api/placeholder/400/300?text=Preview+Mode"
+      image: "/api/placeholder/600/400?text=Preview+Mode"
     },
     {
-      number: "03",
+      number: "Step 3",
       title: "Publish Instantly",
       description: "One click and your updates are live across all your pages.",
       hoverDescription: "No waiting for developers, no CMS complexity. Your changes go live immediately while maintaining your website's design and SEO.",
-      image: "/api/placeholder/400/300?text=Publish+Button"
+      image: "/api/placeholder/600/400?text=Publish+Button"
     }
   ];
 
@@ -50,74 +50,54 @@ export default function HowItWorks() {
               onMouseEnter={() => setActiveStep(index)}
               onMouseLeave={() => setActiveStep(null)}
             >
-              {/* Step Card */}
-              <div className="bg-white rounded-2xl p-8 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 border border-gray-100 h-full flex flex-col">
-                
-                {/* Step Number */}
-                <div className="text-6xl font-bold text-gray-200 mb-6 transition-all duration-500 group-hover:text-blue-100">
-                  {step.number}
+              {/* Step Card with Background Image */}
+              <div 
+                className="bg-white rounded-2xl p-8 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 border border-gray-100 h-full flex flex-col min-h-[500px] relative overflow-hidden"
+              >
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110 z-0"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url(${step.image})`,
+                    backgroundColor: '#f8fafc'
+                  }}
+                >
+                  {/* Gradient overlay to ensure text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-90"></div>
                 </div>
 
-                {/* Step Image */}
-                <div className="mb-6 overflow-hidden rounded-xl">
-                  <div 
-                    className="w-full h-48 bg-gray-200 rounded-xl transition-all duration-700 group-hover:scale-110"
-                    style={{
-                      background: `linear-gradient(135deg, #f0f0f0, #e0e0e0)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#666',
-                      fontSize: '14px',
-                      fontWeight: '500'
-                    }}
-                  >
-                    {step.image.split('?text=')[1]?.replace(/\+/g, ' ')}
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Step Number */}
+                  <div className="text-2xl font-bold text-gray-400 mb-6 transition-all duration-500 group-hover:text-blue-600">
+                    {step.number}
                   </div>
-                </div>
 
-                {/* Step Title */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 transition-all duration-500 group-hover:text-blue-600">
-                  {step.title}
-                </h3>
+                  {/* Step Title */}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 transition-all duration-500 group-hover:text-blue-600">
+                    {step.title}
+                  </h3>
 
-                {/* Step Description */}
-                <div className="flex-1">
-                  <p className="text-gray-600 leading-relaxed transition-all duration-500">
-                    {activeStep === index ? step.hoverDescription : step.description}
-                  </p>
-                </div>
+                  {/* Step Description */}
+                  <div className="flex-1">
+                    <p className="text-gray-600 leading-relaxed transition-all duration-500">
+                      {activeStep === index ? step.hoverDescription : step.description}
+                    </p>
+                  </div>
 
-                {/* Hover Indicator */}
-                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <div className="w-12 h-1 bg-blue-600 rounded-full"></div>
+                  {/* Hover Indicator */}
+                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="w-12 h-1 bg-blue-600 rounded-full"></div>
+                  </div>
                 </div>
               </div>
 
               {/* Connection Line (between steps) */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-8 h-0.5 bg-gray-200 group-hover:bg-blue-200 transition-colors duration-500 z-10"></div>
+                <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-8 h-0.5 bg-gray-200 group-hover:bg-blue-200 transition-colors duration-500 z-20"></div>
               )}
             </div>
           ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to transform your website management?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Join hundreds of businesses already using MokoshAI to save time and stay agile.
-            </p>
-            <button 
-              onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
-            >
-              Start Free Trial
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -35,17 +35,17 @@ export default function HowItWorks() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             <span className="relative inline-block">
-              {/* Gradient Part - How Mokosh */}
+              {/* Gradient Part - How Mok */}
               <span 
                 className="bg-gradient-to-r from-blue-500 via-purple-500 to-black bg-clip-text text-transparent animate-partial-gradient"
                 style={{
                   backgroundSize: '200% 100%'
                 }}
               >
-                How Mokosh
+                How Mok
               </span>
-              {/* Static Black Part - AI Works */}
-              <span className="text-black">AI Works</span>
+              {/* Static Black Part - oshAI Works */}
+              <span className="text-black">oshAI Works</span>
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -132,7 +132,7 @@ export default function HowItWorks() {
         }
         
         .animate-partial-gradient {
-          animation: partial-gradient 4s ease-in-out infinite;
+          animation: partial-gradient 8s ease-in-out infinite;
         }
       `}</style>
     </section>

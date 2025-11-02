@@ -70,10 +70,10 @@ export default function Features() {
                 backgroundSize: '200% 200%'
               }}
             >
-              Everything Teams Love
+              What you will love
             </span>
             <br />
-            <span className="text-gray-900">About MokoshAI</span>
+            <span className="text-gray-900">about MokoshAI</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Powerful features that make website management effortless for everyone on your team
@@ -108,35 +108,6 @@ export default function Features() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 rounded-2xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">
-              Ready to transform how your team manages content?
-            </h3>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join forward-thinking teams that save hours every week with AI-powered content management
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
-              >
-                Start Free Trial
-              </button>
-              <button 
-                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-gray-900 hover:border-blue-600 text-gray-900 hover:text-blue-600 font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 group"
-              >
-                <span>See How It Works</span>
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 

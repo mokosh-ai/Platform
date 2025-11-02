@@ -58,36 +58,41 @@ export default function HowItWorks() {
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110 z-0"
                   style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url(${step.image})`,
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url(${step.image})`,
                     backgroundColor: '#f8fafc'
                   }}
-                >
-                  {/* Gradient overlay to ensure text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-90"></div>
-                </div>
+                ></div>
 
-                {/* Content */}
+                {/* Content Container - Flex column to push text to bottom */}
                 <div className="relative z-10 flex flex-col h-full">
-                  {/* Step Number */}
-                  <div className="text-2xl font-bold text-gray-400 mb-6 transition-all duration-500 group-hover:text-blue-600">
-                    {step.number}
+                  {/* Top Section - Step Number */}
+                  <div className="mb-4">
+                    <div className="text-2xl font-bold text-gray-400 transition-all duration-500 group-hover:text-blue-600">
+                      {step.number}
+                    </div>
                   </div>
 
-                  {/* Step Title */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 transition-all duration-500 group-hover:text-blue-600">
-                    {step.title}
-                  </h3>
+                  {/* Middle Section - Empty space to push content down */}
+                  <div className="flex-1"></div>
 
-                  {/* Step Description */}
-                  <div className="flex-1">
-                    <p className="text-gray-600 leading-relaxed transition-all duration-500">
-                      {activeStep === index ? step.hoverDescription : step.description}
-                    </p>
-                  </div>
+                  {/* Bottom Section - Title and Description */}
+                  <div className="mt-auto">
+                    {/* Step Title */}
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 transition-all duration-500 group-hover:text-blue-600">
+                      {step.title}
+                    </h3>
 
-                  {/* Hover Indicator */}
-                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <div className="w-12 h-1 bg-blue-600 rounded-full"></div>
+                    {/* Step Description */}
+                    <div>
+                      <p className="text-gray-600 leading-relaxed transition-all duration-500">
+                        {activeStep === index ? step.hoverDescription : step.description}
+                      </p>
+                    </div>
+
+                    {/* Hover Indicator */}
+                    <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <div className="w-12 h-1 bg-blue-600 rounded-full"></div>
+                    </div>
                   </div>
                 </div>
               </div>

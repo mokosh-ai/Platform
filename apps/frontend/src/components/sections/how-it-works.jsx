@@ -31,13 +31,13 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header with Full Gradient */}
+        {/* Section Header with Hero Gradient */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             <span 
-              className="bg-gradient-to-r from-blue-500 via-purple-500 to-black via-black to-blue-500 bg-clip-text text-transparent animate-extended-black"
+              className="bg-gradient-to-br from-blue-500 via-purple-500 to-black bg-clip-text text-transparent animate-gradient-move"
               style={{
-                backgroundSize: '400% 100%'
+                backgroundSize: '200% 200%'
               }}
             >
               How MokoshAI Works
@@ -114,24 +114,20 @@ export default function HowItWorks() {
       </div>
 
       <style jsx>{`
-        @keyframes extended-black {
+        @keyframes gradient-move {
           0% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
           }
-          25% {
-            background-position: 50% 50%;
-          }
-          /* Black stays longer here */
-          75% {
-            background-position: 50% 50%;
+          50% {
+            background-position: 100% 100%;
           }
           100% {
-            background-position: 100% 50%;
+            background-position: 0% 0%;
           }
         }
         
-        .animate-extended-black {
-          animation: extended-black 12s ease-in-out infinite;
+        .animate-gradient-move {
+          animation: gradient-move 6s ease infinite;
         }
       `}</style>
     </section>

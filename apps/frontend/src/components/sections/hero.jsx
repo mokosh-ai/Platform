@@ -40,16 +40,16 @@ export default function Hero() {
         {/* Base white background */}
         <div className="absolute inset-0 bg-white"></div>
         
-        {/* Simultaneously Animated Pillars */}
+        {/* Smooth Continuous Color Fade Pillars */}
         <div className="absolute inset-0">
-          <div className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-color-shift"></div>
-          <div className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-color-shift"></div>
-          <div className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-color-shift"></div>
+          <div className="absolute left-1/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-smooth-fade"></div>
+          <div className="absolute left-2/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-smooth-fade"></div>
+          <div className="absolute left-3/4 top-0 w-32 h-full transform -skew-x-12 animate-pillar-smooth-fade"></div>
         </div>
         
         {/* Subtle floating elements for depth */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
-        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '10s'}}></div>
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float-slow"></div>
+        <div className="absolute top-1/2 -right-32 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float-slow" style={{animationDelay: '15s'}}></div>
       </div>
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
@@ -91,46 +91,39 @@ export default function Hero() {
       </div>
 
       <style jsx>{`
-        @keyframes pillar-color-shift {
+        @keyframes pillar-smooth-fade {
           0% {
             background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
-            opacity: 0.4;
+            opacity: 0.3;
           }
-          16.6% {
-            background: linear-gradient(to bottom, #bfdbfe, #ddd6fe);
-            opacity: 0.5;
-          }
-          33.3% {
-            background: linear-gradient(to bottom, #93c5fd, #c4b5fd);
+          25% {
+            background: linear-gradient(to bottom, #a5b4fc, #c4b5fd);
             opacity: 0.6;
           }
           50% {
-            background: linear-gradient(to bottom, #60a5fa, #a78bfa);
-            opacity: 0.7;
+            background: linear-gradient(to bottom, #818cf8, #a78bfa);
+            opacity: 0.8;
           }
-          66.6% {
-            background: linear-gradient(to bottom, #93c5fd, #c4b5fd);
+          75% {
+            background: linear-gradient(to bottom, #a5b4fc, #c4b5fd);
             opacity: 0.6;
-          }
-          83.3% {
-            background: linear-gradient(to bottom, #bfdbfe, #ddd6fe);
-            opacity: 0.5;
           }
           100% {
             background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
-            opacity: 0.4;
+            opacity: 0.3;
           }
         }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-          33% { transform: translateY(-20px) translateX(10px) rotate(1deg); }
-          66% { transform: translateY(10px) translateX(-10px) rotate(-1deg); }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.3; }
+          25% { transform: translateY(-15px) translateX(8px) rotate(0.5deg); opacity: 0.4; }
+          50% { transform: translateY(5px) translateX(-8px) rotate(-0.5deg); opacity: 0.3; }
+          75% { transform: translateY(-10px) translateX(5px) rotate(0.3deg); opacity: 0.35; }
         }
-        .animate-pillar-color-shift {
-          animation: pillar-color-shift 20s ease-in-out infinite;
+        .animate-pillar-smooth-fade {
+          animation: pillar-smooth-fade 25s ease-in-out infinite;
         }
-        .animate-float {
-          animation: float 30s ease-in-out infinite;
+        .animate-float-slow {
+          animation: float-slow 40s ease-in-out infinite;
         }
       `}</style>
     </section>

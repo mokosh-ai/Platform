@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 const fallbackHeroData = {
-  aboveTheFoldHeadline: "AI-Powered Content Management",
+  aboveTheFoldHeadline: "Websites that listen",
   aboveTheFoldAccent: "Through Conversation", 
   aboveTheFoldDescription: "Update your website content instantly by chatting with AI. No technical skills, no complex interfaces.",
   primaryButtonText: "Start Free Trial",
